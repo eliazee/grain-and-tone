@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@14 . --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --eslint)",
+      "Read(//Users/azee/**)",
+      "Bash(export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\")",
+      "Bash(source ~/.zshrc)",
+      "Bash(brew install:*)",
+      "Bash(/usr/local/bin/brew install:*)",
+      "Bash(export PATH=\"/usr/local/Cellar/node/25.9.0_1/bin:$PATH\")",
+      "Bash(npm --version)",
+      "Bash(npx create-next-app@14 . --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --eslint --yes)",
+      "Bash(npm install:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(grep '\"\"version\"\"' node_modules/@supabase/supabase-js/package.json)"
+    ]
+  }
+}

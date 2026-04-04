@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "grain-and-tone (Next.js dev)",
+      "runtimeExecutable": "/usr/local/Cellar/node/25.9.0_1/bin/node",
+      "runtimeArgs": ["node_modules/.bin/next", "dev"],
+      "port": 3000
+    }
+  ]
+}
