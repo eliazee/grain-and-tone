@@ -12,7 +12,9 @@
       "Bash(npx create-next-app@14 . --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --eslint --yes)",
       "Bash(npm install:*)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(grep '\"\"version\"\"' node_modules/@supabase/supabase-js/package.json)"
+      "Bash(grep '\"\"version\"\"' node_modules/@supabase/supabase-js/package.json)",
+      "Bash(npm run:*)",
+      "Bash(/usr/local/Cellar/node/25.9.0_1/bin/node node_modules/.bin/next build)"
     ]
   }
 }
