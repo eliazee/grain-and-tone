@@ -128,8 +128,6 @@ export function RecipeForm({ mode, initialValues, onSubmit }: RecipeFormProps) {
     const clean = { ...values }
     if (clean.white_balance !== 'Color Temperature (K)') {
       clean.white_balance_k = undefined
-      clean.wb_red_shift = 0
-      clean.wb_blue_shift = 0
     }
     await onSubmit(clean)
   })
@@ -309,44 +307,44 @@ export function RecipeForm({ mode, initialValues, onSubmit }: RecipeFormProps) {
               </select>
             </div>
 
-            {/* Color Temperature fields */}
+            {/* Color Temperature — only for K preset */}
             {watchedWB === 'Color Temperature (K)' && (
-              <div className="space-y-3 pl-3 border-l-2 border-accent/40">
-                <div>
-                  <label className={labelClass}>Color Temperature (K)</label>
-                  <input
-                    type="number"
-                    min={2500}
-                    max={10000}
-                    {...register('white_balance_k', { valueAsNumber: true })}
-                    placeholder="e.g. 5500"
-                    className={inputClass}
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className={labelClass}>Red Shift (-9 to +9)</label>
-                    <input
-                      type="number"
-                      min={-9}
-                      max={9}
-                      {...register('wb_red_shift', { valueAsNumber: true })}
-                      className={inputClass}
-                    />
-                  </div>
-                  <div>
-                    <label className={labelClass}>Blue Shift (-9 to +9)</label>
-                    <input
-                      type="number"
-                      min={-9}
-                      max={9}
-                      {...register('wb_blue_shift', { valueAsNumber: true })}
-                      className={inputClass}
-                    />
-                  </div>
-                </div>
+              <div className="pl-3 border-l-2 border-accent/40">
+                <label className={labelClass}>Color Temperature (K)</label>
+                <input
+                  type="number"
+                  min={2500}
+                  max={10000}
+                  {...register('white_balance_k', { valueAsNumber: true })}
+                  placeholder="e.g. 5500"
+                  className={inputClass}
+                />
               </div>
             )}
+
+            {/* Red / Blue Shift — available for all WB presets */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className={labelClass}>Red Shift (-9 to +9)</label>
+                <input
+                  type="number"
+                  min={-9}
+                  max={9}
+                  {...register('wb_red_shift', { valueAsNumber: true })}
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label className={labelClass}>Blue Shift (-9 to +9)</label>
+                <input
+                  type="number"
+                  min={-9}
+                  max={9}
+                  {...register('wb_blue_shift', { valueAsNumber: true })}
+                  className={inputClass}
+                />
+              </div>
+            </div>
 
             <div>
               <label className={labelClass}>ISO</label>
