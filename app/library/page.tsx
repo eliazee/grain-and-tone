@@ -9,10 +9,9 @@ import { FilterBar } from '@/components/FilterBar'
 import { WordMark } from '@/components/WordMark'
 import { isSupabaseConfigured } from '@/lib/supabase'
 import { DEMO_RECIPES } from '@/lib/demoRecipes'
-import Image from 'next/image'
 
 export default function Library() {
-  const { user, loading, signOut } = useAuth()
+  const { user, loading } = useAuth()
   const router = useRouter()
   const { recipes: liveRecipes, loading: recipesLoading } = useRecipes(user?.id)
   const [query, setQuery] = useState('')
@@ -52,36 +51,15 @@ export default function Library() {
   }
 
   return (
-    <div className="min-h-screen bg-bg-primary pb-24">
+    <div className="min-h-screen bg-bg-primary pb-28">
       {/* Header */}
       <div className="sticky top-0 z-20 bg-bg-primary/95 backdrop-blur-sm border-b border-border-primary">
         <div className="flex items-center justify-between px-4 pt-14 pb-3">
           <WordMark size="md" />
-          {isDemo ? (
+          {isDemo && (
             <span className="text-[10px] font-mono text-amber-500 bg-amber-900/30 px-2 py-1 rounded-full">
               DEMO
             </span>
-          ) : (
-            <button
-              onClick={() => {
-                if (window.confirm('Sign out?')) signOut()
-              }}
-              className="w-8 h-8 rounded-full overflow-hidden border border-border-secondary"
-            >
-              {user?.user_metadata?.avatar_url ? (
-                <Image
-                  src={user.user_metadata.avatar_url}
-                  alt="Profile"
-                  width={32}
-                  height={32}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full bg-bg-tertiary flex items-center justify-center text-text-secondary text-xs">
-                  {user?.user_metadata?.full_name?.[0] ?? user?.email?.[0] ?? '?'}
-                </div>
-              )}
-            </button>
           )}
         </div>
 
@@ -146,16 +124,6 @@ export default function Library() {
         )}
       </div>
 
-      {/* FAB */}
-      <button
-        onClick={() => router.push('/recipe/new')}
-        className="fixed bottom-8 right-4 w-14 h-14 bg-accent rounded-full flex items-center justify-center shadow-lg shadow-accent/30 active:scale-95 transition-transform z-30"
-        aria-label="Add recipe"
-      >
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={2.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-        </svg>
-      </button>
     </div>
   )
 }
