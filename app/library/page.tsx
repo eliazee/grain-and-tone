@@ -63,7 +63,9 @@ export default function Library() {
             </span>
           ) : (
             <button
-              onClick={() => signOut()}
+              onClick={() => {
+                if (window.confirm('Sign out?')) signOut()
+              }}
               className="w-8 h-8 rounded-full overflow-hidden border border-border-secondary"
             >
               {user?.user_metadata?.avatar_url ? (
