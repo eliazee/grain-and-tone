@@ -27,7 +27,7 @@ export default function EditRecipePage({ params }: { params: { id: string } }) {
 
   const handleSubmit = async (values: RecipeFormValues) => {
     await updateRecipe(params.id, values)
-    router.replace(`/recipe/${params.id}`)
+    router.replace('/library')
   }
 
   if (loading || fetching) {
