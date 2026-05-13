@@ -40,9 +40,15 @@ export default function SignIn() {
   }
 
   return (
-    <div className="min-h-screen bg-bg-primary flex flex-col items-center justify-center px-6">
+    <div className="min-h-screen relative flex flex-col items-center justify-center px-6">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/signin-bg.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-black/50" />
       {/* Logo */}
-      <div className="flex flex-col items-center mb-12 space-y-3">
+      <div className="relative z-10 flex flex-col items-center mb-12 space-y-3">
         <div className="w-16 h-16 rounded-2xl bg-bg-tertiary border border-border-secondary flex items-center justify-center mb-2">
           <span className="text-3xl font-display italic text-accent font-bold">&</span>
         </div>
@@ -53,7 +59,7 @@ export default function SignIn() {
       </div>
 
       {/* Card */}
-      <div className="w-full max-w-sm space-y-4">
+      <div className="relative z-10 w-full max-w-sm space-y-4">
         {!isSupabaseConfigured && (
           <div className="bg-amber-900/30 border border-amber-700/50 rounded-xl p-4 text-amber-300 text-sm">
             <p className="font-medium mb-1">Supabase not configured</p>

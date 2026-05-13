@@ -14,7 +14,11 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(grep '\"\"version\"\"' node_modules/@supabase/supabase-js/package.json)",
       "Bash(npm run:*)",
-      "Bash(/usr/local/Cellar/node/25.9.0_1/bin/node node_modules/.bin/next build)"
+      "Bash(/usr/local/Cellar/node/25.9.0_1/bin/node node_modules/.bin/next build)",
+      "Bash(echo 'disabled' > ~/.claude/vercel-plugin-telemetry-preference)",
+      "Bash(lsof -iTCP:3000 -sTCP:LISTEN)",
+      "Bash(npx next *)",
+      "Bash(cp \"/Users/azee/Downloads/Fuji Recipes ASSETS/welcome screen.jpg\" \"/Users/azee/Downloads/Fuji Recepies/public/signin-bg.jpg\")"
     ]
   }
 }

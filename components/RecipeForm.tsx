@@ -255,7 +255,7 @@ export function RecipeForm({ mode, initialValues, onSubmit }: RecipeFormProps) {
                         type="range"
                         min={dial.min}
                         max={dial.max}
-                        step={1}
+                        step={dial.step ?? 1}
                         value={v}
                         onChange={(e) => field.onChange(Number(e.target.value))}
                         className="w-full"
