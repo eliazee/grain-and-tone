@@ -61,8 +61,8 @@ export interface DialConfig {
 export const DIAL_CONFIGS: DialConfig[] = [
   { key: 'highlight', label: 'Highlight', min: -2, max: 4, step: 0.5 },
   { key: 'shadow', label: 'Shadow', min: -2, max: 4, step: 0.5 },
-  { key: 'color', label: 'Color', min: -4, max: 4 },
-  { key: 'sharpness', label: 'Sharpness', min: -4, max: 4 },
-  { key: 'noise_reduction', label: 'Noise Reduction', min: -4, max: 4 },
-  { key: 'clarity', label: 'Clarity', min: -5, max: 5 },
+  { key: 'color', label: 'Color', min: -4, max: 4, step: 1 },
+  { key: 'sharpness', label: 'Sharpness', min: -4, max: 4, step: 1 },
+  { key: 'noise_reduction', label: 'Noise Reduction', min: -4, max: 4, step: 1 },
+  { key: 'clarity', label: 'Clarity', min: -5, max: 5, step: 1 },
 ]

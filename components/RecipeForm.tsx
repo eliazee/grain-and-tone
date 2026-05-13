@@ -8,6 +8,7 @@ import { DIAL_CONFIGS } from '@/lib/types'
 import { FILM_SIMULATIONS } from '@/lib/filmSimulations'
 import { FilmSwatch } from './FilmSwatch'
 import { AIScanButton } from './AIScanButton'
+import { DialControl } from './DialControl'
 
 interface RecipeFormProps {
   mode: 'create' | 'edit'
@@ -233,36 +234,16 @@ export function RecipeForm({ mode, initialValues, onSubmit }: RecipeFormProps) {
                 key={dial.key}
                 name={dial.key}
                 control={control}
-                render={({ field }) => {
-                  const v = Number(field.value)
-                  return (
-                    <div className="px-4 py-3 border-b border-border-primary last:border-0">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-text-secondary text-sm">{dial.label}</span>
-                        <span
-                          className={`font-mono text-sm font-medium ${
-                            v > 0
-                              ? 'text-dial-pos'
-                              : v < 0
-                              ? 'text-dial-neg'
-                              : 'text-text-tertiary'
-                          }`}
-                        >
-                          {v > 0 ? `+${v}` : v}
-                        </span>
-                      </div>
-                      <input
-                        type="range"
-                        min={dial.min}
-                        max={dial.max}
-                        step={dial.step ?? 1}
-                        value={v}
-                        onChange={(e) => field.onChange(Number(e.target.value))}
-                        className="w-full"
-                      />
-                    </div>
-                  )
-                }}
+                render={({ field }) => (
+                  <DialControl
+                    label={dial.label}
+                    value={Number(field.value) || 0}
+                    min={dial.min}
+                    max={dial.max}
+                    step={dial.step ?? 1}
+                    onChange={field.onChange}
+                  />
+                )}
               />
             ))}
           </div>
