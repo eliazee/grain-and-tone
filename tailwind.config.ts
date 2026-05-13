@@ -27,9 +27,30 @@ const config: Config = {
         'dial-neg-bg': 'rgba(194,53,53,0.15)',
       },
       fontFamily: {
-        display: ['"Playfair Display"', 'serif'],
-        sans: ['"DM Sans"', 'sans-serif'],
-        mono: ['"DM Mono"', 'monospace'],
+        display: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"SF Pro Display"',
+          '"Helvetica Neue"',
+          'Arial',
+          'sans-serif',
+        ],
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"SF Pro Display"',
+          '"Helvetica Neue"',
+          'Arial',
+          'sans-serif',
+        ],
+        mono: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"SF Pro Display"',
+          '"Helvetica Neue"',
+          'Arial',
+          'sans-serif',
+        ],
       },
       borderRadius: {
         'xl': '12px',

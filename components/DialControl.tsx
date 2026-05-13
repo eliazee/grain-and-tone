@@ -60,12 +60,12 @@ export function DialControl({ label, value, min, max, step, onChange }: DialCont
 
   return (
     <div className="px-4 py-4 border-b border-border-primary last:border-0">
-      <div className="flex items-center justify-between mb-3">
+      <div className="grid grid-cols-3 items-center mb-3">
         <span className="text-text-secondary text-sm">{label}</span>
-        <div className="flex items-center gap-3">
-          <span className={`font-mono text-xl tabular-nums ${valueColor}`}>
-            {formatValue(value)}
-          </span>
+        <span className={`text-xl tabular-nums text-center ${valueColor}`}>
+          {formatValue(value)}
+        </span>
+        <div className="justify-self-end">
           <div className="flex items-center bg-bg-tertiary rounded-lg border border-border-primary overflow-hidden">
             <button
               type="button"
@@ -110,10 +110,10 @@ export function DialControl({ label, value, min, max, step, onChange }: DialCont
                 key={t}
                 className={
                   isCurrent
-                    ? 'w-[2px] h-7 bg-dial-neg rounded-full'
+                    ? 'w-[3px] h-7 bg-dial-neg rounded-full'
                     : isInt
-                    ? 'w-px h-5 bg-white/70'
-                    : 'w-px h-3 bg-white/35'
+                    ? 'w-[2px] h-5 bg-white/80 rounded-full'
+                    : 'w-[2px] h-3 bg-white/40 rounded-full'
                 }
               />
             )
